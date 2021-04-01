@@ -36,6 +36,9 @@ set(PROJECT_SOURCES
         Rozmiary.h
         zeszyt.cpp
         zeszyt.h
+
+        mapperrozmiarow.cpp
+        mapperrozmiarow.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

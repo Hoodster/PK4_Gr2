@@ -10,8 +10,6 @@ class Zeszyt : public QObject
     Q_OBJECT
 public:
     explicit Zeszyt(QObject *parent = nullptr);
-    void DodajZeszyt();
-    void UsunZeszyt();
     void ZapiszZeszyt();
 
     QString nazwaKatalogu = ""; // katalog, do ktorego zeszyt jest przypisany

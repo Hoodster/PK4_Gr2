@@ -1,5 +1,4 @@
 #include "notatnik.h"
-#include "Rozmiary.h"
 #include "./ui_notatnik.h"
 
 Notatnik::Notatnik(QWidget *parent)
@@ -7,7 +6,6 @@ Notatnik::Notatnik(QWidget *parent)
     , ui(new Ui::Notatnik)
 {
     ui->setupUi(this);
-    rozmiary R = rozmiary::A3;
 
 }
 
