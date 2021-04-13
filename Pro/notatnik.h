@@ -2,6 +2,7 @@
 #define NOTATNIK_H
 
 #include <QMainWindow>
+//#include "Rozmiary.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Notatnik; }
@@ -15,6 +16,12 @@ public:
     Notatnik(QWidget *parent = nullptr);
     ~Notatnik();
 
+private slots:
+    void on_kartkaA3_triggered();
+    void on_buttonBox_accepted();
+
+protected:
+    //rozmiar rozmiary;
 private:
     Ui::Notatnik *ui;
 };

@@ -1,6 +1,7 @@
 #include "zeszyt.h"
 
-Zeszyt::Zeszyt(QObject *parent) : QObject(parent)
+Zeszyt::Zeszyt(QString nZeszytu, rozmiar rKartki, QObject *parent) : QObject(parent)
 {
-
+    nazwaZeszytu = nZeszytu;
+    rozmiarKartki = rKartki;
 }
