@@ -1,5 +1,0 @@
-C:/Users/MM/Documents/GitHub/PK4_Gr2/build-Pro-Desktop_Qt_6_0_2_MSVC2019_64bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/MM/Documents/GitHub/PK4_Gr2/build-Pro-Desktop_Qt_6_0_2_MSVC2019_64bit-Debug/CMakeFiles/Pro.dir
-C:/Users/MM/Documents/GitHub/PK4_Gr2/build-Pro-Desktop_Qt_6_0_2_MSVC2019_64bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/MM/Documents/GitHub/PK4_Gr2/build-Pro-Desktop_Qt_6_0_2_MSVC2019_64bit-Debug/CMakeFiles/Pro_autogen_timestamp_deps.dir
-C:/Users/MM/Documents/GitHub/PK4_Gr2/build-Pro-Desktop_Qt_6_0_2_MSVC2019_64bit-Debug/CMakeFiles/Pro_autogen.dir
