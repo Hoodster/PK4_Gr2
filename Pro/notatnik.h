@@ -18,7 +18,6 @@ public:
 
 private slots:
     void on_kartkaA3_triggered();
-    void on_buttonBox_accepted();
 
 protected:
     //rozmiar rozmiary;

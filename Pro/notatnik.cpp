@@ -12,7 +12,6 @@ Notatnik::Notatnik(QWidget *parent)
     , ui(new Ui::Notatnik)
 {
     ui->setupUi(this);
-    ui->PanelNazwyZeszytu->hide();
 }
 
 Notatnik::~Notatnik()
@@ -26,7 +25,6 @@ void Notatnik::on_kartkaA3_triggered()
     // Utrzymanie aktywnego okna po wprowadzeniu zlej nazwy
     // polaczenie z QDialogiem i QInputDialogiem
 
-    //ui->PanelNazwyZeszytu->show();
     bool ok;
     QMessageBox messe;
     QString nazwaZeszytu = QInputDialog::getText(this, tr("Nowy zeszyt"),tr("Nazwa zeszytu:"), QLineEdit::Normal, QString(), &ok);
@@ -40,19 +38,4 @@ void Notatnik::on_kartkaA3_triggered()
             // pokaz wszystkie zeszyty - nie musi tu byc ta opcja
         }
     }
-}
-
-void Notatnik::on_buttonBox_accepted()
-{
-/*    QMessageBox messe;
-    QString nazwaZeszytu = ui->lineEdit->text();
-    if(!nazwaZeszytu.compare("")) { // jesli jestes pusty
-        messe.information(this, "Info", "Wpisz nazwę zeszytu!", true);
-    }
-    else {
-        Zeszyt zeszyt(nazwaZeszytu, rozmiar::A3);
-        messe.information(this, "Info", "Udało się stworzyć nowy zeszyt o nazwie " + nazwaZeszytu, true);
-        ui->PanelNazwyZeszytu->hide();
-    }
-*/
 }
