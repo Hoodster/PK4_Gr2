@@ -1,6 +1,7 @@
 #include "notatnik.h"
 #include "zeszyt.h"
 #include "Rozmiary.h"
+#include "rysuj.h"
 #include "./ui_notatnik.h"
 
 #include <QMessageBox>
@@ -38,4 +39,11 @@ void Notatnik::on_kartkaA3_triggered()
             // pokaz wszystkie zeszyty - nie musi tu byc ta opcja
         }
     }
+}
+
+void Notatnik::on_pushButton_clicked()
+{
+    Rysuj r;
+    r.setModal(true);
+    r.exec();
 }

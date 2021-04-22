@@ -39,6 +39,10 @@ set(PROJECT_SOURCES
 
         mapperrozmiarow.cpp
         mapperrozmiarow.h
+
+        rysuj.cpp
+        rysuj.h
+        rysuj.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

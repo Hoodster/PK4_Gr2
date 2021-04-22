@@ -19,6 +19,8 @@ public:
 private slots:
     void on_kartkaA3_triggered();
 
+    void on_pushButton_clicked();
+
 protected:
     //rozmiar rozmiary;
 private:
