@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 //#include "Rozmiary.h"
+#include "rysuj2.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Notatnik; }
@@ -18,8 +19,9 @@ public:
 
 private slots:
     void on_kartkaA3_triggered();
+    void on_kartkaA4_triggered();
+    void on_kartkaA5_triggered();
 
-    void on_pushButton_clicked();
 
 protected:
     //rozmiar rozmiary;

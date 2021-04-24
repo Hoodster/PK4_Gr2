@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Notatnik</class>
- <widget class="QMainWindow" name="Notatnik">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
+ <class>rysuj2</class>
+ <widget class="QMainWindow" name="rysuj2">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Notatnik</string>
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -26,36 +26,35 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuMenu">
+   <widget class="QMenu" name="menuStyle">
     <property name="title">
-     <string>Menu</string>
+     <string>Style</string>
     </property>
-    <widget class="QMenu" name="menuDodaj_Zeszyt">
-     <property name="title">
-      <string>Dodaj Zeszyt</string>
-     </property>
-     <addaction name="kartkaA3"/>
-     <addaction name="kartkaA4"/>
-     <addaction name="kartkaA5"/>
-    </widget>
-    <addaction name="menuDodaj_Zeszyt"/>
+    <addaction name="actionRozmiar"/>
+    <addaction name="actionColor"/>
    </widget>
-   <addaction name="menuMenu"/>
+   <widget class="QMenu" name="menuArchiwum">
+    <property name="title">
+     <string>Archiwum</string>
+    </property>
+    <addaction name="actionOdklac"/>
+   </widget>
+   <addaction name="menuArchiwum"/>
+   <addaction name="menuStyle"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="kartkaA3">
+  <action name="actionColor">
    <property name="text">
-    <string>A3</string>
+    <string>Color</string>
    </property>
   </action>
-  <action name="kartkaA4">
+  <action name="actionRozmiar">
    <property name="text">
-    <string>A4</string>
+    <string>Rozmiar</string>
    </property>
   </action>
-  <action name="kartkaA5">
+  <action name="actionOdklac">
    <property name="text">
-    <string>A5</string>
+    <string>Odkladac</string>
    </property>
   </action>
  </widget>
