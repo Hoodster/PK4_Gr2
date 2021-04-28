@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Notatnik</class>
+ <widget class="QMainWindow" name="Notatnik">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Notatnik</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <widget class="QMenu" name="menuDodaj_Zeszyt">
+     <property name="title">
+      <string>Dodaj Zeszyt</string>
+     </property>
+     <addaction name="kartkaA3"/>
+     <addaction name="kartkaA4"/>
+     <addaction name="kartkaA5"/>
+    </widget>
+    <addaction name="menuDodaj_Zeszyt"/>
+   </widget>
+   <addaction name="menuMenu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="kartkaA3">
+   <property name="text">
+    <string>A3</string>
+   </property>
+  </action>
+  <action name="kartkaA4">
+   <property name="text">
+    <string>A4</string>
+   </property>
+  </action>
+  <action name="kartkaA5">
+   <property name="text">
+    <string>A5</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
