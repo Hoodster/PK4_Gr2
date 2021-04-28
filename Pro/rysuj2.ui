@@ -38,6 +38,7 @@
      <string>Plik</string>
     </property>
     <addaction name="actionzapiszprojekt"/>
+    <addaction name="actionOtworz_projekt"/>
     <addaction name="actionZamkniecie"/>
    </widget>
    <widget class="QMenu" name="menuGumka">
@@ -73,6 +74,11 @@
   <action name="actionRozmiar_2">
    <property name="text">
     <string>Rozmiar</string>
+   </property>
+  </action>
+  <action name="actionOtworz_projekt">
+   <property name="text">
+    <string>Otworz projekt</string>
    </property>
   </action>
  </widget>

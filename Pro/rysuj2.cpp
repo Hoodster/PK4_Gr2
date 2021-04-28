@@ -14,6 +14,7 @@
 #include <QBuffer>
 #include <QFileDialog>
 
+
 #define DEFAULT_SIZE 5
 
 rysuj2::rysuj2(QWidget *parent) :
@@ -90,8 +91,14 @@ void rysuj2::on_actionColor_triggered()
 
 void rysuj2::on_actionzapiszprojekt_triggered()
 {
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Zapisz obraz"),
+                                                    QString(),
+                                                    tr("Images (*.png);;Images (*.jpg);;All Files (*))"));
 
-
+    if (!fileName.isEmpty())
+    {
+      mImage->save(fileName);
+    }
 
 }
 
@@ -106,4 +113,11 @@ void rysuj2::on_actionRozmiar_2_triggered()
 {
     mSize = QInputDialog::getInt(this, "rozmiar olowka", "wprowadz rozmiar:",5);
     mColor = QColor(Qt::white);
+}
+
+void rysuj2::on_actionOtworz_projekt_triggered()
+{
+
+
+
 }

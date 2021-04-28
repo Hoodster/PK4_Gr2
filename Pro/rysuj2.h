@@ -29,6 +29,8 @@ private slots:
     void on_actionzapiszprojekt_triggered();
     void on_actionRozmiar_2_triggered();
 
+    void on_actionOtworz_projekt_triggered();
+
 private:
     Ui::rysuj2 *ui;
     QPainter *mPainter;
