@@ -10,8 +10,8 @@ int *MapperRozmiarow::map(rozmiar rozmiar)
     int *t = new int[2];
     switch (rozmiar) {
         case rozmiar::A3:
-            t[0] = 1133;   // szerokosc w mm
-            t[1] = 1587;   // wysokosc w mm
+            t[0] = 1133;   // szerokosc w pikselach
+            t[1] = 1587;   // wysokosc w pikselach
             break;
         case rozmiar::A4:
             t[0] = 793;
