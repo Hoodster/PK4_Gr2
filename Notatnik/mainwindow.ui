@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Plik</string>
+    </property>
+    <addaction name="actionNowy"/>
+    <addaction name="actionOtworz"/>
+    <addaction name="actionZapisz"/>
+    <addaction name="actionZamknij"/>
+   </widget>
+   <widget class="QMenu" name="menuStyl">
+    <property name="title">
+     <string>Styl</string>
+    </property>
+    <addaction name="actionKolor"/>
+    <addaction name="actionRozmiar"/>
+   </widget>
+   <widget class="QMenu" name="menuGumka">
+    <property name="title">
+     <string>Narzedzia</string>
+    </property>
+    <addaction name="actionGumka"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuStyl"/>
+   <addaction name="menuGumka"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionZapisz">
+   <property name="text">
+    <string>Zapisz</string>
+   </property>
+  </action>
+  <action name="actionNowy">
+   <property name="text">
+    <string>Nowy</string>
+   </property>
+  </action>
+  <action name="actionOtworz">
+   <property name="text">
+    <string>Otworz</string>
+   </property>
+  </action>
+  <action name="actionZamknij">
+   <property name="text">
+    <string>Zamknij</string>
+   </property>
+  </action>
+  <action name="actionKolor">
+   <property name="text">
+    <string>Kolor</string>
+   </property>
+  </action>
+  <action name="actionRozmiar">
+   <property name="text">
+    <string>Rozmiar</string>
+   </property>
+  </action>
+  <action name="actionGumka">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Gumka</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
