@@ -21,10 +21,10 @@ public:
 
     void start();
 
-    bool openImage();
+    bool otworzObraz();
 
-    QImage getImage();
-    void setImage(QImage image);
+    QImage pobierzObraz();
+    void ustawObraz(QImage image);
 
     void resize(int w, int h);
 
@@ -32,11 +32,11 @@ public:
 
     void setBrushWidth (int setBrushWidth);
 
-    void setColor(QColor setColor);
-    QColor getColor();
+    void ustawKolor(QColor setColor);
+    QColor pobierzKolor();
 
-    QColor getPrevColor() const;
-    void setPrevColor(const QColor &value);
+    QColor pobierzPoprzedniKolor() const;
+    void ustawPoprzedniKolor(const QColor &value);
 
     Qt::PenStyle getPenStyle() const;
     void setPenStyle(const Qt::PenStyle &value);
@@ -55,8 +55,8 @@ private:
     QImage kopiaRysuj;
     QPoint mEnd;
     QPoint mBegin;
-    QColor currentColor;
-    QColor prevColor;
+    QColor aktualnyKolor;
+    QColor poprzedniKolor;
     QColor fillColor;
     Qt::PenStyle penStyle;
     Qt::PenCapStyle capStyle;
@@ -64,11 +64,6 @@ private:
 
     int brushWidth;
     bool isDrawing;
-    bool isRectangle;
-    bool isCircle;
-    bool isTriangle;
-    bool isLine;
-    bool isFilling;
 
     bool mousePressed;
 };

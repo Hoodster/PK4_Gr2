@@ -34,7 +34,7 @@ int MainWindow::openDialog()
 
 void MainWindow::on_actionZapisz_triggered()
 {
-    QImage saveDrawing = poleRysuj->getImage();
+    QImage saveDrawing = poleRysuj->pobierzObraz();
     QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
     saveDrawing.save(filePath);
 }
@@ -65,11 +65,11 @@ void MainWindow::on_actionOtworz_triggered()
     if(dialog == QMessageBox::Yes)
     {
        on_actionZapisz_triggered();
-       poleRysuj->openImage();
+       poleRysuj->otworzObraz();
     }
     else if(dialog == QMessageBox::No)
     {
-        poleRysuj->openImage();
+        poleRysuj->otworzObraz();
     }
     else if(dialog == QMessageBox::Cancel)
     {
@@ -98,7 +98,7 @@ void MainWindow::on_actionZamknij_triggered()
 void MainWindow::on_actionKolor_triggered()
 {
     QColor customColor = QColorDialog::getColor(Qt::white, this, QString("Wybierz kolor"), QColorDialog::ShowAlphaChannel);
-    poleRysuj->setColor(customColor);
+    poleRysuj->ustawKolor(customColor);
 }
 
 void MainWindow::on_actionRozmiar_triggered()
@@ -118,11 +118,11 @@ void MainWindow::on_actionGumka_triggered()
 {
     if(ui->actionGumka->isChecked() == true)
     {
-       poleRysuj->setPrevColor(poleRysuj->getColor());
-       poleRysuj->setColor(Qt::white);
+       poleRysuj->ustawPoprzedniKolor(poleRysuj->pobierzKolor());
+       poleRysuj->ustawKolor(Qt::white);
     }
     if(ui->actionGumka->isChecked() == false)
     {
-        poleRysuj->setColor(poleRysuj->getPrevColor());
+        poleRysuj->ustawKolor(poleRysuj->pobierzPoprzedniKolor());
     }
 }

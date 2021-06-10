@@ -20,7 +20,7 @@ void rysuj::start()
 {
     poleRysuj = QImage(this->size(), QImage::Format_RGB32);
     poleRysuj.fill(Qt::white);
-    setColor(Qt::black);
+    ustawKolor(Qt::black);
     setBrushWidth(1);
     setPenStyle(Qt::SolidLine);
     setCapStyle(Qt::RoundCap);
@@ -29,7 +29,7 @@ void rysuj::start()
 }
 
 
-bool rysuj::openImage()
+bool rysuj::otworzObraz()
 {
      QString openImageLocation = QFileDialog::getOpenFileName(this, tr("Open image"), "", tr("PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)" ));
      if(!openImageLocation.isEmpty())
@@ -93,7 +93,7 @@ void rysuj::paintEvent(QPaintEvent *event)
 
 
             QPainter pencilPainter(&poleRysuj);
-            pencilPainter.setPen(QPen(currentColor,brushWidth,penStyle,capStyle,joinStyle));
+            pencilPainter.setPen(QPen(aktualnyKolor,brushWidth,penStyle,capStyle,joinStyle));
             pencilPainter.drawLine(mEnd, mBegin);
 
             mBegin = mEnd;
@@ -102,7 +102,7 @@ void rysuj::paintEvent(QPaintEvent *event)
     else if(wasMousePressed)
     {
         QPainter painter(&poleRysuj);
-        painter.setPen(QPen(currentColor,brushWidth,penStyle,capStyle,joinStyle));
+        painter.setPen(QPen(aktualnyKolor,brushWidth,penStyle,capStyle,joinStyle));
 
 
             painter.drawImage(dirtyRect, poleRysuj, dirtyRect);
@@ -134,12 +134,12 @@ void rysuj::resizeEvent(QResizeEvent *event)
 }
 
 
-QImage rysuj::getImage()
+QImage rysuj::pobierzObraz()
 {
     return poleRysuj;
 }
 
-void rysuj::setImage(QImage image)
+void rysuj::ustawObraz(QImage image)
 {
     poleRysuj = image;
 }
@@ -150,7 +150,7 @@ void rysuj::resize(int w, int h)
     newImage.fill(Qt::white);
     QPainter painter(&newImage);
     painter.drawImage(QPoint(0, 0), poleRysuj);
-    setImage(newImage.toImage());
+    ustawObraz(newImage.toImage());
     update();
 }
 
@@ -160,14 +160,14 @@ void rysuj::clear()
     update();
 }
 
-QColor rysuj::getPrevColor() const
+QColor rysuj::pobierzPoprzedniKolor() const
 {
-    return prevColor;
+    return poprzedniKolor;
 }
 
-void rysuj::setPrevColor(const QColor &value)
+void rysuj::ustawPoprzedniKolor(const QColor &value)
 {
-    prevColor = value;
+    poprzedniKolor = value;
 }
 
 Qt::PenStyle rysuj::getPenStyle() const
@@ -210,9 +210,9 @@ void rysuj::setCopyDrawing(const QImage &value)
     kopiaRysuj = value;
 }
 
-void rysuj::setColor(QColor setColor)
+void rysuj::ustawKolor(QColor ustawKolor)
 {
-    currentColor = setColor;
+    aktualnyKolor = ustawKolor;
 }
 
 void rysuj::setBrushWidth(int setBrushWidth)
@@ -220,7 +220,7 @@ void rysuj::setBrushWidth(int setBrushWidth)
     brushWidth = setBrushWidth;
 }
 
-QColor rysuj::getColor()
+QColor rysuj::pobierzKolor()
 {
-    return currentColor;
+    return aktualnyKolor;
 }
