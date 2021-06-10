@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "zeszyt.h"
 #include <QColorDialog>
 #include <QScrollArea>
 
@@ -10,8 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
       poleRysuj(new rysuj(this))
 {
     ui->setupUi(this);
-    QMainWindow::showFullScreen();
-    setCentralWidget(poleRysuj);
+    //QMainWindow::showFullScreen();
+    poleRysuj->hide();
+    //setCentralWidget(poleRysuj);
 }
 
 MainWindow::~MainWindow()
@@ -41,22 +42,34 @@ void MainWindow::on_actionZapisz_triggered()
 
 void MainWindow::on_actionNowy_triggered()
 {
-    int dialog = openDialog();
-    if(dialog == QMessageBox::Yes)
-    {
-       on_actionZapisz_triggered();
-       poleRysuj->start();
-       update();
-    }
-    else if(dialog == QMessageBox::No)
-    {
+    bool ok;
+    QMessageBox mess;
+    QString nazwaZesz = QInputDialog::getText(this, tr("Nowy zeszyt"), tr("Nazwa zeszytu:"), QLineEdit::Normal, QString(), &ok);
+    if(!nazwaZesz.compare(""))
+        mess.information(this, "Informacja", "Wpisz nazwe zeszytu!", true);
+    else {
+        Zeszyt zeszyt(nazwaZesz);
+        mess.information(this, "Informacja", "Udalo się stworzyć zeszyt o nazwie " + nazwaZesz, true);
+        QStringList rozmiary;
+        rozmiary << "A3" << "A4" << "A5";
+        QString rozmiar = QInputDialog::getItem(this, "Wybierz rozmiar kartki", "Rozmiar:", rozmiary);
+        if(!rozmiar.compare("A3")) {
+            ui->centralwidget->resize(1133, 1587);
+        }
+        else if(!rozmiar.compare("A4")) {
+            ui->centralwidget->resize(793, 1133);
+        }
+        else if(!rozmiar.compare("A5")) {
+            ui->centralwidget->resize(566, 793);
+        }
+        ui->centralwidget->setFixedSize(ui->centralwidget->width(), ui->centralwidget->height());
+        poleRysuj->show();
+        setCentralWidget(poleRysuj);
+        poleRysuj->setWindowTitle(nazwaZesz);
         poleRysuj->start();
         update();
     }
-    else if(dialog == QMessageBox::Cancel)
-    {
-        return;
-    }
+
 }
 
 void MainWindow::on_actionOtworz_triggered()
