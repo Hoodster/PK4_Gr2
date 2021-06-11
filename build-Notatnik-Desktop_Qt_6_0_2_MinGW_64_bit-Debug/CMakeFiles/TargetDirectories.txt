@@ -1,0 +1,5 @@
+C:/Users/andrz/OneDrive/Documents/QT projects/build-Notatnik-Desktop_Qt_6_0_2_MinGW_64_bit-Debug/CMakeFiles/Notatnik.dir
+C:/Users/andrz/OneDrive/Documents/QT projects/build-Notatnik-Desktop_Qt_6_0_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/andrz/OneDrive/Documents/QT projects/build-Notatnik-Desktop_Qt_6_0_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/andrz/OneDrive/Documents/QT projects/build-Notatnik-Desktop_Qt_6_0_2_MinGW_64_bit-Debug/CMakeFiles/Notatnik_autogen_timestamp_deps.dir
+C:/Users/andrz/OneDrive/Documents/QT projects/build-Notatnik-Desktop_Qt_6_0_2_MinGW_64_bit-Debug/CMakeFiles/Notatnik_autogen.dir
