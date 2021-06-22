@@ -3,16 +3,18 @@
 #include "zeszyt.h"
 #include <QColorDialog>
 #include <QScrollArea>
+#include <QDirIterator>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       ui(new Ui::MainWindow),
       poleRysuj(new rysuj(this))
-{
+{   
     ui->setupUi(this);
     //QMainWindow::showFullScreen();
     poleRysuj->hide();
     //setCentralWidget(poleRysuj);
+//    ui->menuStrona->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -53,6 +55,8 @@ void MainWindow::on_actionNowy_triggered()
         QStringList rozmiary;
         rozmiary << "A3" << "A4" << "A5";
         QString rozmiar = QInputDialog::getItem(this, "Wybierz rozmiar kartki", "Rozmiar:", rozmiary);
+
+
         if(!rozmiar.compare("A3")) {
             ui->centralwidget->resize(1133, 1587);
         }
@@ -62,6 +66,7 @@ void MainWindow::on_actionNowy_triggered()
         else if(!rozmiar.compare("A5")) {
             ui->centralwidget->resize(566, 793);
         }
+
         ui->centralwidget->setFixedSize(ui->centralwidget->width(), ui->centralwidget->height());
         poleRysuj->show();
         setCentralWidget(poleRysuj);
@@ -137,5 +142,18 @@ void MainWindow::on_actionGumka_triggered()
     if(ui->actionGumka->isChecked() == false)
     {
         poleRysuj->ustawKolor(poleRysuj->pobierzPoprzedniKolor());
+    }
+}
+
+void MainWindow::on_actionNastepna_triggered()
+{
+    QDir dir;
+    QDirIterator iterator("D:\foto", QDirIterator::Subdirectories);
+    while (iterator.hasNext()) {
+        QFile file(iterator.next());
+        if ( file.open( QIODevice::ReadOnly ) )
+            qDebug() << "Opened:" << file.fileName();
+        else
+            qDebug() << "Can't open " << file.fileName() << file.errorString();
     }
 }

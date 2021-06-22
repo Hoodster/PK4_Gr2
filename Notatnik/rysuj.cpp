@@ -19,9 +19,10 @@ rysuj::~rysuj() {}
 void rysuj::start()
 {
     poleRysuj = QImage(this->size(), QImage::Format_RGB32);
-    poleRysuj.fill(Qt::white);
-    ustawKolor(Qt::black);
-    setBrushWidth(1);
+    poleRysuj.fill(Qt::white);  // kolor pola do rysowania
+    ustawKolor(Qt::black);  //kolor olowka
+    setBrushWidth(1);   // rozmiar olowka / pedzla
+    // styl rysowania olowka / pedzla
     setPenStyle(Qt::SolidLine);
     setCapStyle(Qt::RoundCap);
     setJoinStyle(Qt::RoundJoin);
@@ -31,10 +32,10 @@ void rysuj::start()
 
 bool rysuj::otworzObraz()
 {
-     QString openImageLocation = QFileDialog::getOpenFileName(this, tr("Open image"), "", tr("PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)" ));
-     if(!openImageLocation.isEmpty())
+     QString lokacjaObrazu = QFileDialog::getOpenFileName(this, tr("Open image"), "", tr("PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)" ));
+     if(!lokacjaObrazu.isEmpty())
      {
-        poleRysuj.load(openImageLocation);
+        poleRysuj.load(lokacjaObrazu);
         return true;
      }
      else

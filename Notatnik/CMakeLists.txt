@@ -37,6 +37,9 @@ set(PROJECT_SOURCES
         rysuj.h
         zeszyt.cpp
         zeszyt.h
+
+        strona.cpp
+        strona.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -9,3 +9,4 @@ Zeszyt::Zeszyt(QString nazwaZ)
 {
     nazwaZeszytu = nazwaZ;
 }
+
