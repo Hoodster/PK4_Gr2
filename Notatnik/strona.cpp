@@ -5,19 +5,24 @@ Strona::Strona()
 
 }
 
-void Strona::dodajStrone(Strona *head)
+void Strona::dodajStrone(Strona **head)
 {
-    Strona *New = new Strona;
-    if(head==nullptr)
-    {
-        head = New;
-        next = nullptr;
+    Strona *nowaStrona = new Strona;
+    Strona *tmpS = *head;
+    nowaStrona->numerStrony += 1;
+    nowaStrona->next = nullptr;
+
+    if (*head == nullptr) {
+        nowaStrona->prev = nullptr;
+        *head = nowaStrona;
+        return;
     }
-    else
-    {
-        New -> prev=next;
-        next=New;
-        if(New->prev)
-            New->prev->next=New;
-    }
+    while (tmpS->next != nullptr)
+        tmpS = tmpS->next;
+
+    tmpS->next = nowaStrona;
+
+    nowaStrona->prev = tmpS;
+
+    return;
 }

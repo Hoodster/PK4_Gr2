@@ -56,7 +56,6 @@ void MainWindow::on_actionNowy_triggered()
         rozmiary << "A3" << "A4" << "A5";
         QString rozmiar = QInputDialog::getItem(this, "Wybierz rozmiar kartki", "Rozmiar:", rozmiary);
 
-
         if(!rozmiar.compare("A3")) {
             ui->centralwidget->resize(1133, 1587);
         }
@@ -147,6 +146,7 @@ void MainWindow::on_actionGumka_triggered()
 
 void MainWindow::on_actionNastepna_triggered()
 {
+    //zeszyt.strona->dodajStrone(&zeszyt.strona); // dodawanie nastepnej strony
     QDir dir;
     QDirIterator iterator("D:\foto", QDirIterator::Subdirectories);
     while (iterator.hasNext()) {

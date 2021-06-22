@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <rysuj.h>
+#include <zeszyt.h>
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QInputDialog>
@@ -26,6 +27,7 @@ public:
 private:
     Ui::MainWindow *ui;
     rysuj *poleRysuj;
+    //Zeszyt zeszyt;
 
 private slots:
     void on_actionZapisz_triggered();

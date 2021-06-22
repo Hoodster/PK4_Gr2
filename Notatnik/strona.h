@@ -4,12 +4,13 @@
 
 class Strona
 {
-public:
-    Strona();
-    int numerStrony;
+private:
+    int numerStrony = 1; //static
     Strona* next;
     Strona* prev;
-    void dodajStrone(Strona *head);
+public:
+    Strona();
+    void dodajStrone(Strona **head);
 };
 
 #endif // STRONA_H
