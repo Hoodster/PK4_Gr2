@@ -5,12 +5,13 @@
 class Strona
 {
 private:
-    int numerStrony = 1; //static
     Strona* next;
     Strona* prev;
 public:
+    static int numerStrony;
     Strona();
     void dodajStrone(Strona **head);
 };
+//int Strona::numerStrony = 0;
 
 #endif // STRONA_H

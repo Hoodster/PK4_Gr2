@@ -30,11 +30,13 @@ public:
     QAction *actionKolor;
     QAction *actionRozmiar;
     QAction *actionGumka;
+    QAction *actionNastepna;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuStyl;
     QMenu *menuGumka;
+    QMenu *menuStrona;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -57,18 +59,22 @@ public:
         actionGumka = new QAction(MainWindow);
         actionGumka->setObjectName(QString::fromUtf8("actionGumka"));
         actionGumka->setCheckable(true);
+        actionNastepna = new QAction(MainWindow);
+        actionNastepna->setObjectName(QString::fromUtf8("actionNastepna"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 20));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuStyl = new QMenu(menubar);
         menuStyl->setObjectName(QString::fromUtf8("menuStyl"));
         menuGumka = new QMenu(menubar);
         menuGumka->setObjectName(QString::fromUtf8("menuGumka"));
+        menuStrona = new QMenu(menubar);
+        menuStrona->setObjectName(QString::fromUtf8("menuStrona"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -77,6 +83,7 @@ public:
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuStyl->menuAction());
         menubar->addAction(menuGumka->menuAction());
+        menubar->addAction(menuStrona->menuAction());
         menuFile->addAction(actionNowy);
         menuFile->addAction(actionOtworz);
         menuFile->addAction(actionZapisz);
@@ -84,6 +91,7 @@ public:
         menuStyl->addAction(actionKolor);
         menuStyl->addAction(actionRozmiar);
         menuGumka->addAction(actionGumka);
+        menuStrona->addAction(actionNastepna);
 
         retranslateUi(MainWindow);
 
@@ -100,9 +108,11 @@ public:
         actionKolor->setText(QCoreApplication::translate("MainWindow", "Kolor", nullptr));
         actionRozmiar->setText(QCoreApplication::translate("MainWindow", "Rozmiar", nullptr));
         actionGumka->setText(QCoreApplication::translate("MainWindow", "Gumka", nullptr));
+        actionNastepna->setText(QCoreApplication::translate("MainWindow", "Nastepna", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "Plik", nullptr));
         menuStyl->setTitle(QCoreApplication::translate("MainWindow", "Styl", nullptr));
         menuGumka->setTitle(QCoreApplication::translate("MainWindow", "Narzedzia", nullptr));
+        menuStrona->setTitle(QCoreApplication::translate("MainWindow", "Strona", nullptr));
     } // retranslateUi
 
 };

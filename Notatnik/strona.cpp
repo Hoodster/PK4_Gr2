@@ -4,12 +4,13 @@ Strona::Strona()
 {
 
 }
+int Strona::numerStrony = 0;
 
 void Strona::dodajStrone(Strona **head)
 {
     Strona *nowaStrona = new Strona;
     Strona *tmpS = *head;
-    nowaStrona->numerStrony += 1;
+    nowaStrona->numerStrony++;
     nowaStrona->next = nullptr;
 
     if (*head == nullptr) {

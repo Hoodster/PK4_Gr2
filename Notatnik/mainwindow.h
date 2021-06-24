@@ -23,12 +23,11 @@ public:
     ~MainWindow();
 
     int openDialog();
-
+    void zapiszRysowanie();
 private:
     Ui::MainWindow *ui;
     rysuj *poleRysuj;
-    //Zeszyt zeszyt;
-
+    Zeszyt z;
 private slots:
     void on_actionZapisz_triggered();
     void on_actionNowy_triggered();

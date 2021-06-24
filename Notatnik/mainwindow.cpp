@@ -34,12 +34,25 @@ int MainWindow::openDialog()
     return dialog.exec();
 }
 
-
-void MainWindow::on_actionZapisz_triggered()
+void MainWindow::zapiszRysowanie()
 {
     QImage saveDrawing = poleRysuj->pobierzObraz();
     QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
     saveDrawing.save(filePath);
+}
+
+
+void MainWindow::on_actionZapisz_triggered()
+{
+    QImage saveDrawing = poleRysuj->pobierzObraz();
+    //QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
+    QString a = "C:\'projekty";
+    if(!QDir(a).exists())
+        QDir().mkdir(a);
+
+//    QString t = QString::number(z.strona->numerStrony);
+//    QString filePath = a + '/' + t + ".png";
+//    saveDrawing.save(filePath);
 }
 
 void MainWindow::on_actionNowy_triggered()
@@ -50,7 +63,13 @@ void MainWindow::on_actionNowy_triggered()
     if(!nazwaZesz.compare(""))
         mess.information(this, "Informacja", "Wpisz nazwe zeszytu!", true);
     else {
-        Zeszyt zeszyt(nazwaZesz);
+//        Zeszyt zeszyt(nazwaZesz);
+//        zeszyt.strona->dodajStrone(&zeszyt.strona);
+
+        z.dodajZeszyt(nazwaZesz);
+        z.strona->dodajStrone(&z.strona);
+
+
         mess.information(this, "Informacja", "Udalo się stworzyć zeszyt o nazwie " + nazwaZesz, true);
         QStringList rozmiary;
         rozmiary << "A3" << "A4" << "A5";
@@ -146,9 +165,19 @@ void MainWindow::on_actionGumka_triggered()
 
 void MainWindow::on_actionNastepna_triggered()
 {
-    //zeszyt.strona->dodajStrone(&zeszyt.strona); // dodawanie nastepnej strony
+    /*
+    Sprawdzamy czy jest więcej niż jedna strona: jeśli tak to oglądamy te strone, a jeśli nie to dodajemy stronę
+    */
+
+    if(z.strona->numerStrony > 1) {
+
+    }
+    else {
+        z.strona->dodajStrone(&z.strona);
+    }
+
     QDir dir;
-    QDirIterator iterator("D:\foto", QDirIterator::Subdirectories);
+    QDirIterator iterator("C:\foto", QDirIterator::Subdirectories);
     while (iterator.hasNext()) {
         QFile file(iterator.next());
         if ( file.open( QIODevice::ReadOnly ) )
