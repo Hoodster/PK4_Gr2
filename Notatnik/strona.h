@@ -9,9 +9,9 @@ private:
     Strona* prev;
 public:
     static int numerStrony;
+    static int aktualnyNrStr; // numer strony, na ktorym aktualnie jestesmy
     Strona();
     void dodajStrone(Strona **head);
 };
-//int Strona::numerStrony = 0;
 
 #endif // STRONA_H

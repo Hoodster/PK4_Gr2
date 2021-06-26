@@ -24,6 +24,8 @@ public:
 
     int openDialog();
     void zapiszRysowanie();
+
+    QDir dir;
 private:
     Ui::MainWindow *ui;
     rysuj *poleRysuj;

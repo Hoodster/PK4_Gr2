@@ -22,6 +22,7 @@ public:
     void start();
 
     bool otworzObraz();
+    void otwieranieObrazu(QString numer);
 
     QImage pobierzObraz();
     void ustawObraz(QImage image);

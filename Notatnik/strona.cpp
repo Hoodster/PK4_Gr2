@@ -5,6 +5,7 @@ Strona::Strona()
 
 }
 int Strona::numerStrony = 0;
+int Strona::aktualnyNrStr = 1;
 
 void Strona::dodajStrone(Strona **head)
 {

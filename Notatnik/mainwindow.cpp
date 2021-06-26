@@ -4,6 +4,7 @@
 #include <QColorDialog>
 #include <QScrollArea>
 #include <QDirIterator>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -14,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     //QMainWindow::showFullScreen();
     poleRysuj->hide();
     //setCentralWidget(poleRysuj);
-//    ui->menuStrona->setVisible(false);
+    //ui->menuStrona->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -45,14 +46,19 @@ void MainWindow::zapiszRysowanie()
 void MainWindow::on_actionZapisz_triggered()
 {
     QImage saveDrawing = poleRysuj->pobierzObraz();
-    //QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", "", "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
-    QString a = "C:\'projekty";
-    if(!QDir(a).exists())
-        QDir().mkdir(a);
+    QString sciezka = "C:/rys";
+    QString path(sciezka);
+    if (!dir.exists(path))
+      dir.mkpath(path);
 
-//    QString t = QString::number(z.strona->numerStrony);
-//    QString filePath = a + '/' + t + ".png";
-//    saveDrawing.save(filePath);
+    //QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", sciezka, "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
+
+    // Zapis zmienic tak aby zapisywal sie aktuany nr strony
+
+    QString t = QString::number(z.strona->numerStrony);
+    QString fP = sciezka + "/" + t + ".png";
+    saveDrawing.save(fP);
+    //saveDrawing.save(filePath);
 }
 
 void MainWindow::on_actionNowy_triggered()
@@ -170,19 +176,15 @@ void MainWindow::on_actionNastepna_triggered()
     */
 
     if(z.strona->numerStrony > 1) {
-
+        // przegladanie plikow?
+        poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr));
     }
-    else {
+    else {  // numer strony jest rowny 1 i tu dodajemy strone
+        on_actionZapisz_triggered();
         z.strona->dodajStrone(&z.strona);
-    }
-
-    QDir dir;
-    QDirIterator iterator("C:\foto", QDirIterator::Subdirectories);
-    while (iterator.hasNext()) {
-        QFile file(iterator.next());
-        if ( file.open( QIODevice::ReadOnly ) )
-            qDebug() << "Opened:" << file.fileName();
-        else
-            qDebug() << "Can't open " << file.fileName() << file.errorString();
+        z.strona->aktualnyNrStr++;
+        // inkrementacja numeru strony i przejscie na nowa strone MOCY! :D
+        poleRysuj->clear();
+        update();
     }
 }

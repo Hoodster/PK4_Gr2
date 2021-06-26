@@ -1,5 +1,4 @@
 #include "rysuj.h"
-
 #include <QImage>
 #include <QMessageBox>
 #include <QMouseEvent>
@@ -42,6 +41,13 @@ bool rysuj::otworzObraz()
      {
          return false;
      }
+}
+
+void rysuj::otwieranieObrazu(QString numer)
+{
+    QString sci = "C:/rys";
+    QString lokacjaObrazu = sci + "/" + numer + ".png";
+    poleRysuj.load(lokacjaObrazu);
 }
 
 
