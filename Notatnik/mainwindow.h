@@ -26,6 +26,7 @@ public:
     void zapiszRysowanie();
 
     QDir dir;
+    QDir dir_zeszyt;
 private:
     Ui::MainWindow *ui;
     rysuj *poleRysuj;

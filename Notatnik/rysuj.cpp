@@ -5,7 +5,6 @@
 #include <QPainter>
 #include <QPainterPath>
 
-
 rysuj::rysuj(QWidget *parent) : QWidget(parent)
 {
     start();
@@ -43,9 +42,9 @@ bool rysuj::otworzObraz()
      }
 }
 
-void rysuj::otwieranieObrazu(QString numer)
+void rysuj::otwieranieObrazu(QString numer, QString nazwa)
 {
-    QString sci = "C:/rys";
+    QString sci = "C:/zeszyty/" + nazwa;
     QString lokacjaObrazu = sci + "/" + numer + ".png";
     poleRysuj.load(lokacjaObrazu);
 }

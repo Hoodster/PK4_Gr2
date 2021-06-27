@@ -47,7 +47,7 @@ void MainWindow::zapiszRysowanie()
 void MainWindow::on_actionZapisz_triggered()
 {
     QImage saveDrawing = poleRysuj->pobierzObraz();
-    QString sciezka = "C:/rys";
+    QString sciezka = "C:/zeszyty/"+z.nazwaZeszytu;
     QString path(sciezka);
     if (!dir.exists(path))
       dir.mkpath(path);
@@ -173,7 +173,7 @@ void MainWindow::on_actionNastepna_triggered()
     if( z.strona->numerStrony > z.strona->aktualnyNrStr) {
 
         z.strona->aktualnyNrStr++;
-        poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr));
+        poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr),z.nazwaZeszytu);
 
     }
     else
@@ -192,7 +192,7 @@ void MainWindow::on_actionPoprzednia_triggered()
  on_actionZapisz_triggered();
 
     if(z.strona->aktualnyNrStr>1){
-      poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr-1));
+      poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr-1),z.nazwaZeszytu);
 
       z.strona->aktualnyNrStr--;
     }
