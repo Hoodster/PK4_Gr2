@@ -4,15 +4,15 @@
 
 class Strona
 {
-
-
-public:
+private:
     Strona* next;
     Strona* prev;
-    static int numerStrony;
-    static int aktualnyNrStr; // numer strony, na ktorym aktualnie jestesmy
+
+public:
+    static int numerStrony; // ilosc stron utworzonych w zeszycie
+    static int aktualnyNrStr; // numer strony, na ktorej aktualnie jestesmy
     Strona();
-    void dodajStrone(Strona **head);
+    void dodajStrone(Strona **head);    // dodawania strony na koniec listy
 };
 
 #endif // STRONA_H

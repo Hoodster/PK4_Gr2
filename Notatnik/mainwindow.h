@@ -23,10 +23,10 @@ public:
     ~MainWindow();
 
     int openDialog();
-    void zapiszRysowanie();
+//    void zapiszRysowanie();
 
-    QDir dir;
-    QDir dir_zeszyt;
+    QDir dir;   // tworzenie glownego katalogu
+    QDir dir_zeszyt;    // tworzenie katalogu z nazwa zeszytu
 private:
     Ui::MainWindow *ui;
     rysuj *poleRysuj;

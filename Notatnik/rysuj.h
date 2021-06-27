@@ -48,17 +48,13 @@ public:
     Qt::PenJoinStyle getJoinStyle() const;
     void setJoinStyle(const Qt::PenJoinStyle &value);
 
-    QImage getCopyDrawing() const;
-    void setCopyDrawing(const QImage &value);
 
 private:
-    QImage poleRysuj;
-    QImage kopiaRysuj;
-    QPoint mEnd;
-    QPoint mBegin;
-    QColor aktualnyKolor;
-    QColor poprzedniKolor;
-    QColor fillColor;
+    QImage poleRysuj;   // glowne pole rysowania
+    QPoint mEnd;    // koniec lini
+    QPoint mBegin;  //poczatek lini
+    QColor aktualnyKolor;   // zapisuje aktualny kolor
+    QColor poprzedniKolor;   // zapisuje poprzedni kolor, uzywane przy gumce
     Qt::PenStyle penStyle;
     Qt::PenCapStyle capStyle;
     Qt::PenJoinStyle joinStyle;

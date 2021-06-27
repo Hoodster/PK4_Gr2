@@ -12,7 +12,7 @@ public:
     Strona *strona = nullptr;
     Zeszyt();
     Zeszyt(QString nazwaZ);
-    void dodajZeszyt(QString nazwaZ);
+    void dodajZeszyt(QString nazwaZ);   // tworzenie nowego zeszytu
 };
 
 #endif // ZESZYT_H

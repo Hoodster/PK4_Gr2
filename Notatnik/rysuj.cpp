@@ -42,15 +42,15 @@ bool rysuj::otworzObraz()
      }
 }
 
-void rysuj::otwieranieObrazu(QString numer, QString nazwa)
+void rysuj::otwieranieObrazu(QString numer, QString nazwa)  // otwieranie strony
 {
-    QString sci = "C:/zeszyty/" + nazwa;
+    QString sci = "C:/zeszyty/" + nazwa;    // sciezka do zeszytu
     QString lokacjaObrazu = sci + "/" + numer + ".png";
     poleRysuj.load(lokacjaObrazu);
 }
 
 
-void rysuj::mousePressEvent(QMouseEvent *event)
+void rysuj::mousePressEvent(QMouseEvent *event) // przycisk jest wcisniety
 {
     if (event->button() == Qt::LeftButton)
     {
@@ -64,7 +64,7 @@ void rysuj::mousePressEvent(QMouseEvent *event)
 }
 
 
-void rysuj::mouseMoveEvent(QMouseEvent *event)
+void rysuj::mouseMoveEvent(QMouseEvent *event)  // myszka jest poruszana
 {
     if ((event->buttons() & Qt::LeftButton) && isDrawing)
     {
@@ -74,7 +74,7 @@ void rysuj::mouseMoveEvent(QMouseEvent *event)
 }
 
 
-void rysuj::mouseReleaseEvent(QMouseEvent *event)
+void rysuj::mouseReleaseEvent(QMouseEvent *event)   // przycisk jest zwolniony
 {
     if (event->button() == Qt::LeftButton && isDrawing)
     {
@@ -85,7 +85,7 @@ void rysuj::mouseReleaseEvent(QMouseEvent *event)
 }
 
 
-void rysuj::paintEvent(QPaintEvent *event)
+void rysuj::paintEvent(QPaintEvent *event)  // funkcja rysowania
 {
     static bool wasMousePressed = false;
 
@@ -93,34 +93,27 @@ void rysuj::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.drawImage(dirtyRect, poleRysuj, dirtyRect);
 
-    if(mousePressed)
+    if(mousePressed)    // jesli aktualnie jest wcisniety przycisk
     {
         wasMousePressed = true;
-
 
             QPainter pencilPainter(&poleRysuj);
             pencilPainter.setPen(QPen(aktualnyKolor,brushWidth,penStyle,capStyle,joinStyle));
             pencilPainter.drawLine(mEnd, mBegin);
-
             mBegin = mEnd;
-
     }
     else if(wasMousePressed)
     {
         QPainter painter(&poleRysuj);
         painter.setPen(QPen(aktualnyKolor,brushWidth,penStyle,capStyle,joinStyle));
-
-
-            painter.drawImage(dirtyRect, poleRysuj, dirtyRect);
-
-
+        painter.drawImage(dirtyRect, poleRysuj, dirtyRect);
         wasMousePressed = false;
     }
     update();
 }
 
 
-void rysuj::resizeEvent(QResizeEvent *event)
+void rysuj::resizeEvent(QResizeEvent *event)    // ustawianie rozmiaru pola do rysowania
 {
     if (width() != poleRysuj.width() || height() != poleRysuj.height())
     {
@@ -140,12 +133,12 @@ void rysuj::resizeEvent(QResizeEvent *event)
 }
 
 
-QImage rysuj::pobierzObraz()
+QImage rysuj::pobierzObraz()    // pobranie pola rysowania
 {
     return poleRysuj;
 }
 
-void rysuj::ustawObraz(QImage image)
+void rysuj::ustawObraz(QImage image)    // wladowanie obrazu do pola
 {
     poleRysuj = image;
 }
@@ -160,7 +153,7 @@ void rysuj::resize(int w, int h)
     update();
 }
 
-void rysuj::clear()
+void rysuj::clear() // czyszczenie obrazu
 {
     poleRysuj.fill(Qt::white);
     update();
@@ -206,15 +199,6 @@ void rysuj::setJoinStyle(const Qt::PenJoinStyle &value)
     joinStyle = value;
 }
 
-QImage rysuj::getCopyDrawing() const
-{
-    return kopiaRysuj;
-}
-
-void rysuj::setCopyDrawing(const QImage &value)
-{
-    kopiaRysuj = value;
-}
 
 void rysuj::ustawKolor(QColor ustawKolor)
 {
