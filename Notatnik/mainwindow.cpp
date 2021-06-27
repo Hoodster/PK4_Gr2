@@ -22,6 +22,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete poleRysuj;
+    delete z.strona;
 }
 
 int MainWindow::openDialog()
@@ -51,9 +52,6 @@ void MainWindow::on_actionZapisz_triggered()
     if (!dir.exists(path))
       dir.mkpath(path);
 
-    //QString filePath = QFileDialog::getSaveFileName(this, "Zapisz obraz", sciezka, "PNG (*.png);;JPEG (*.jpg *.jpeg);;BMP (*.bmp)");
-
-    // Zapis zmienic tak aby zapisywal sie aktuany nr strony
 
     QString t = QString::number(z.strona->aktualnyNrStr);
     QString fP = sciezka + "/" + t + ".png";
@@ -69,8 +67,7 @@ void MainWindow::on_actionNowy_triggered()
     if(!nazwaZesz.compare(""))
         mess.information(this, "Informacja", "Wpisz nazwe zeszytu!", true);
     else {
-//        Zeszyt zeszyt(nazwaZesz);
-//        zeszyt.strona->dodajStrone(&zeszyt.strona);
+
 
         z.dodajZeszyt(nazwaZesz);
         z.strona->dodajStrone(&z.strona);
@@ -171,47 +168,34 @@ void MainWindow::on_actionGumka_triggered()
 
 void MainWindow::on_actionNastepna_triggered()
 {
-    /*
-    Sprawdzamy czy jest więcej niż jedna strona: jeśli tak to oglądamy te strone, a jeśli nie to dodajemy stronę
-    */
-    /*//wersja Martyny
-    if(z.strona->numerStrony > 1) {
-        // przegladanie plikow?
+
+    on_actionZapisz_triggered();
+    if( z.strona->numerStrony > z.strona->aktualnyNrStr) {
+
+        z.strona->aktualnyNrStr++;
         poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr));
+
     }
-    else {  // numer strony jest rowny 1 i tu dodajemy strone
-        on_actionZapisz_triggered();
+    else
+    {  // numer strony jest rowny 1 i tu dodajemy strone
+
         z.strona->dodajStrone(&z.strona);
         z.strona->aktualnyNrStr++;
         // inkrementacja numeru strony i przejscie na nowa strone MOCY! :D
         poleRysuj->clear();
         update();
-    }
-    */
-   // if(z.strona->next!=nullptr) {
-       //if((z.strona->aktualnyNrStr+1)<z.strona->numerStrony)
-       // poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr+1));
-        //z.strona->aktualnyNrStr++;
-   // }
-   // else
-   // {  // numer strony jest rowny 1 i tu dodajemy strone
-        on_actionZapisz_triggered();
-        z.strona->dodajStrone(&z.strona);
-        z.strona->aktualnyNrStr++;
-        // inkrementacja numeru strony i przejscie na nowa strone MOCY! :D
-        poleRysuj->clear();
-        update();
-  // }
+   }
 }
 
 void MainWindow::on_actionPoprzednia_triggered()
 {
-    // on_actionZapisz_triggered();
+ on_actionZapisz_triggered();
 
-   // if(z.strona->prev!=nullptr){
+    if(z.strona->aktualnyNrStr>1){
       poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr-1));
-      on_actionZapisz_triggered();
+
       z.strona->aktualnyNrStr--;
-   // }
+    }
+
 }
 
