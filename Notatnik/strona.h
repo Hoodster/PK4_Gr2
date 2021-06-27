@@ -4,10 +4,11 @@
 
 class Strona
 {
-private:
+
+
+public:
     Strona* next;
     Strona* prev;
-public:
     static int numerStrony;
     static int aktualnyNrStr; // numer strony, na ktorym aktualnie jestesmy
     Strona();

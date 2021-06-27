@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -50,6 +50,7 @@
      <string>Strona</string>
     </property>
     <addaction name="actionNastepna"/>
+    <addaction name="actionPoprzednia"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuStyl"/>
@@ -98,6 +99,11 @@
   <action name="actionNastepna">
    <property name="text">
     <string>Nastepna</string>
+   </property>
+  </action>
+  <action name="actionPoprzednia">
+   <property name="text">
+    <string>Poprzednia</string>
    </property>
   </action>
  </widget>

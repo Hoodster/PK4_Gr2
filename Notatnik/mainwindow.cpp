@@ -55,7 +55,7 @@ void MainWindow::on_actionZapisz_triggered()
 
     // Zapis zmienic tak aby zapisywal sie aktuany nr strony
 
-    QString t = QString::number(z.strona->numerStrony);
+    QString t = QString::number(z.strona->aktualnyNrStr);
     QString fP = sciezka + "/" + t + ".png";
     saveDrawing.save(fP);
     //saveDrawing.save(filePath);
@@ -174,7 +174,7 @@ void MainWindow::on_actionNastepna_triggered()
     /*
     Sprawdzamy czy jest więcej niż jedna strona: jeśli tak to oglądamy te strone, a jeśli nie to dodajemy stronę
     */
-
+    /*//wersja Martyny
     if(z.strona->numerStrony > 1) {
         // przegladanie plikow?
         poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr));
@@ -187,4 +187,31 @@ void MainWindow::on_actionNastepna_triggered()
         poleRysuj->clear();
         update();
     }
+    */
+   // if(z.strona->next!=nullptr) {
+       //if((z.strona->aktualnyNrStr+1)<z.strona->numerStrony)
+       // poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr+1));
+        //z.strona->aktualnyNrStr++;
+   // }
+   // else
+   // {  // numer strony jest rowny 1 i tu dodajemy strone
+        on_actionZapisz_triggered();
+        z.strona->dodajStrone(&z.strona);
+        z.strona->aktualnyNrStr++;
+        // inkrementacja numeru strony i przejscie na nowa strone MOCY! :D
+        poleRysuj->clear();
+        update();
+  // }
 }
+
+void MainWindow::on_actionPoprzednia_triggered()
+{
+    // on_actionZapisz_triggered();
+
+   // if(z.strona->prev!=nullptr){
+      poleRysuj->otwieranieObrazu(QString::number(z.strona->aktualnyNrStr-1));
+      on_actionZapisz_triggered();
+      z.strona->aktualnyNrStr--;
+   // }
+}
+

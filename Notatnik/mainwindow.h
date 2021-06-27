@@ -39,5 +39,6 @@ private slots:
     void on_actionRozmiar_triggered();
     void on_actionGumka_triggered();
     void on_actionNastepna_triggered();
+    void on_actionPoprzednia_triggered();
 };
 #endif // MAINWINDOW_H
